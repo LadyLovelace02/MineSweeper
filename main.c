@@ -3,9 +3,9 @@
 
 int main(int argc, char **argv) {
     int play;
+    intro();
     do {
-        intro();
-        setUpGame();
+        game();
         printf("Would you like to keep playing?\n");
         play = yOrN();
     } while (play == 1);
@@ -14,15 +14,10 @@ int main(int argc, char **argv) {
 }
 
 void intro() {
-    unsigned int seed = 0;
     system("clear");//clear the screen
     printf("MINESWEEPER\n");
     printf("Created by Melissa Rand\n\n");
     printf("Press any key to continue: ");
-    while (!getch()) {//doesn't wait for input properly fix later
-        seed++;
-    }
-    printf("DEBUG, seed: %d\n", seed);
-    srand(seed);
-    //system("clear");
+    getchar();
+    system("clear");
 }
