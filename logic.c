@@ -54,6 +54,16 @@ void makeMine(char* grid[], int x, int y) {
 
 void reveal(char* grid[], int x, int y) {
     grid[x][y] |= 0x10000000;//sets the 8th bit if not already set
+    //need to reveal adj squares if numAdjMines is 0
+    if (numAdjMines(grid, x, y) == 0) {
+        for (int i = -1; i < 2; i++) {
+            for (int j = -1; j < 2; j++) {
+                if (i != 0 && j != 0) {//do not call on original x and y cords
+                    reveal(grid, x+i, y+j);
+                }
+            }
+        }
+    }
 }
 
 void flag(char* grid[], int x, int y) {
