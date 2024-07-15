@@ -10,6 +10,10 @@
 #define TRUE            1
 #define FALSE           0
 
+#define FLAG            "F"
+#define BOMB            "B"
+#define HIDDEN          "-"
+
 /* grid byte meaning key
  * 11111111
  * ^            is revealed
