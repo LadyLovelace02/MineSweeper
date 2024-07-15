@@ -3,9 +3,9 @@
 
 int main(int argc, char **argv) {
     int play;
+    intro();
     do {
-        intro();
-        setUpGame();
+        game();
         printf("Would you like to keep playing?\n");
         play = yOrN();
     } while (play == 1);
@@ -14,15 +14,20 @@ int main(int argc, char **argv) {
 }
 
 void intro() {
-    unsigned int seed = 0;
     system("clear");//clear the screen
     printf("MINESWEEPER\n");
     printf("Created by Melissa Rand\n\n");
-    printf("Press any key to continue: ");
-    while (!getch()) {//doesn't wait for input properly fix later
-        seed++;
-    }
-    printf("DEBUG, seed: %d\n", seed);
-    srand(seed);
-    //system("clear");
+    printf("Welcome to MineSweeper!\n");
+    printf("The goal is to flag all the mines and reveal all the safe spaces on the grid\n");
+    printf("Controls:\n");
+    printf("\t(f) flag/unflag\n");
+    printf("\t(r) reveal\n");
+    printf("\t(k) up\n");
+    printf("\t(j) down\n");
+    printf("\t(h) left\n");
+    printf("\t(l) right\n");
+    printf("the arrow keys also work for navigation\n\n");
+    printf("Press enter to continue: ");
+    getchar();
+    system("clear");
 }
